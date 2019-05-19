@@ -14,7 +14,7 @@
         var min=0; 
         var max=2;  
         var random =Math.floor(Math.random() * (max - min)) + min; 
-alert(random);
+
         app=new PIXI.Application({width:window.innerWidth,height:window.innerHeight});
         document.body.appendChild(app.view);
         img=null;
@@ -39,8 +39,13 @@ alert(random);
         displacementFilter = new PIXI.filters.DisplacementFilter(depthMap);
         app.stage.filters = [displacementFilter];
         window.onmousemove=function(e){
+            if(random==1){
+                displacementFilter.scale.x=(window.innerWidth /2 -e.clientX)/17;
+                displacementFilter.scale.y=(window.innerHeight /2 -e.clientY)/17;
+            }else{
             displacementFilter.scale.x=(window.innerWidth /2 -e.clientX)/25;
             displacementFilter.scale.y=(window.innerHeight /2 -e.clientY)/25;
+            }
         };
     </script>
 </body>
