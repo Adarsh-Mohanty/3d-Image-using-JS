@@ -11,14 +11,23 @@
 <body>
     <script src="pixi.min.js"></script>
     <script>
+        var min=0; 
+        var max=2;  
+        var random =Math.floor(Math.random() * (max - min)) + min; 
+
         let app=new PIXI.Application({width:window.innerWidth,height:window.innerHeight});
         document.body.appendChild(app.view);
-
-        let img=new PIXI.Sprite.from("image.jpg");
+        if(random==0){
+            let img=new PIXI.Sprite.from("image.jpg");
+            depthMap = new PIXI.Sprite.from("imagedm.jpg");
+        }else if (random==1){
+            let img=new PIXI.Sprite.from("ironmanimage.jpg");
+            depthMap = new PIXI.Sprite.from("ironmanimagedm.jpg");
+        }
         img.width=window.innerWidth;
         img.height=window.innerHeight;
         app.stage.addChild(img);
-        depthMap = new PIXI.Sprite.from("imagedm.jpg");
+        
         depthMap.width=window.innerWidth;
         depthMap.height=window.innerHeight;
         app.stage.addChild(depthMap);
