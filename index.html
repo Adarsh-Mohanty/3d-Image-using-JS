@@ -14,15 +14,19 @@
         var min=0; 
         var max=2;  
         var random =Math.floor(Math.random() * (max - min)) + min; 
-
-        let app=new PIXI.Application({width:window.innerWidth,height:window.innerHeight});
+alert(random);
+        app=new PIXI.Application({width:window.innerWidth,height:window.innerHeight});
         document.body.appendChild(app.view);
+        img=null;
         if(random==0){
-            let img=new PIXI.Sprite.from("image.jpg");
+            img=new PIXI.Sprite.from("image.jpg");
             depthMap = new PIXI.Sprite.from("imagedm.jpg");
+           
         }else if (random==1){
-            let img=new PIXI.Sprite.from("ironmanimage.jpg");
+            img=new PIXI.Sprite.from("ironmanimage.jpg");
             depthMap = new PIXI.Sprite.from("ironmanimagedm.jpg");
+           
+
         }
         img.width=window.innerWidth;
         img.height=window.innerHeight;
